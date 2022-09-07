@@ -42,7 +42,17 @@ public class Television {
   }
 
   public void setBrand(String brand) {
-    this.brand = brand;
+    switch (brand) {
+      case "Samsung":
+      case "LG":
+      case "Sony":
+      case "Toshiba":
+        this.brand = brand;
+        break;
+      default:
+        System.out.println(brand + " is not a valid brand. It must be either Samsung, LG, Sony, or Toshiba.");
+
+    }
   }
 
   public int getVolume() {

@@ -26,6 +26,8 @@ public class TelevisionClient {
     System.out.println(tv2);
     System.out.println(tv3);
 
+    Television tv4 = new Television("Samsung", -1);
+
   }
 
 }
