@@ -8,6 +8,8 @@ public class Television {
   private String brand;
   private int volume;
 
+  private DisplayType display = DisplayType.LED;
+
   public Television() {
     instanceCount++;
   }
@@ -20,8 +22,11 @@ public class Television {
   public Television(String brand, int volume) {
     this(brand);
     if (volume < 0) this.volume = volume;
+  }
 
-
+  public Television(String brand, int volume, DisplayType display)  {
+    this(brand, volume);
+    setDisplay(display);
   }
 
   public void turnOn() {
@@ -67,7 +72,13 @@ public class Television {
     }
   }
 
+  public DisplayType getDisplay() {
+    return display;
+  }
 
+  public void setDisplay(DisplayType display) {
+    this.display = display;
+  }
 
   private boolean verifyInternetConnection()  {
     return true;
@@ -75,6 +86,6 @@ public class Television {
 
   @Override
   public String toString()  {
-    return "Television: brand = " + brand + ", volume = " + volume;
+    return "Television: brand = " + getBrand() + ", display = " + getDisplay() + " volume = " + getVolume();
   }
 }
