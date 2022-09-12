@@ -39,6 +39,7 @@ class DerivedDateTimeTest {
      */
     public static void testPresidentsFirst100Days() {
         // TODO
+
     }
 
     /**
@@ -50,7 +51,11 @@ class DerivedDateTimeTest {
      */
     public static void testPopularBirthdays() {
         // TODO: what is the average birthday of someone conceived on Valentine's Day?
+        LocalDate valentines = LocalDate.of(2022, Month.FEBRUARY, 14);
+        System.out.println(valentines);
 
+        LocalDate newYearsDay = LocalDate.of(2022, 1, 1);
+        System.out.println(newYearsDay.plusWeeks(38));
         // TODO: what is the average birthday of someone conceived on New Year's Eve (after midnight)?
     }
 
@@ -63,6 +68,7 @@ class DerivedDateTimeTest {
      */
     public static void testEarlyRetirement() {
         // TODO
+
     }
 
     /**
