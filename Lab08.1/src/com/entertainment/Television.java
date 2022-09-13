@@ -10,6 +10,8 @@ package com.entertainment;
 
 import java.util.Arrays;
 
+
+
 /**
  * Class definition to model the workings of a television set.
  * This is our "business class" in the lab series.
@@ -23,6 +25,8 @@ public class Television {
 
     private static int instanceCount = 0;
 
+
+
     public static int getInstanceCount() {
         return instanceCount;
     }
@@ -32,9 +36,11 @@ public class Television {
     private String brand;
     private int volume;
     private DisplayType display = DisplayType.LED;
+    private Tuner tuner = new Tuner();
 
     // CONSTRUCTORS - special methods that get called when the client says "new"
     public Television() {
+        super();
         instanceCount++;
     }
 
@@ -64,6 +70,16 @@ public class Television {
     }
 
     // ACCESSOR METHODS - these provide "controlled access" to the (private) fields
+
+    public void changeChannel(String channel)   {
+        tuner.setChannel(channel);
+    }
+
+    public String getCurrentChannel()   {
+        return tuner.getChannel();
+    }
+
+
     public String getBrand() {
         return brand;
     }
@@ -121,6 +137,7 @@ public class Television {
         return "com.entertainment.Television" +
                 ": brand=" + getBrand() +
                 ", volume=" + getVolume() +
-                ", display=" + getDisplay();
+                ", display=" + getDisplay() +
+                ", channel=" + getCurrentChannel();
     }
 }
