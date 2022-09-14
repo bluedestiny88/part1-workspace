@@ -20,7 +20,13 @@ public class SalariedEmployee extends Employee {
   //TODO: Declare and implement a constructor that takes name, hireDate, rate, and hours
   public SalariedEmployee(String name, LocalDate hireDate, double salary)  {
     super(name, hireDate);
-    this.salary = salary;
+    setSalary(salary);
+  }
+
+  @Override
+  public void pay() {
+    System.out.printf("%s is paid a salary of %,.2f%n",
+        getName(), getSalary());
   }
 
   //TODO: Generate getters and setters

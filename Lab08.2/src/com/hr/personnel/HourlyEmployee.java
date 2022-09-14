@@ -19,8 +19,14 @@ public class HourlyEmployee extends Employee {
   //TODO: Declare and implement a constructor that takes name, hireDate, rate, and hours
   public HourlyEmployee(String name, LocalDate hireDate, double rate, double hours)  {
     this(name, hireDate);
-    this.rate = rate;
-    this.hours = hours;
+    setRate(rate);
+    setHours(hours);
+  }
+
+  @Override
+  public void pay() {
+    System.out.printf("%s is paid hourly, for a total of %,.2f%n",
+        getName(), getHours() * getRate());
   }
 
   //TODO: Generate getters and setters
@@ -43,6 +49,7 @@ public class HourlyEmployee extends Employee {
   //TODO: Override toString method
   @Override
   public String toString() {
-    return String.format("%s, rate=%,.2f, hourly=%f", super.toString(), getRate(), getHours());
+//  return super.toString() + ", rate = " + rate + ", hours = " + hours;
+    return String.format("%s, rate = %.2f, hours = %.1f", super.toString(), getRate(), getHours());
   }
 }

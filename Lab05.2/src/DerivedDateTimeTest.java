@@ -23,7 +23,7 @@ class DerivedDateTimeTest {
      * To run one test method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-        // testPresidentsFirst100Days();
+         testPresidentsFirst100Days();
         // testPopularBirthdays();
         // testEarlyRetirement();
         // testLaborDay();
@@ -35,10 +35,12 @@ class DerivedDateTimeTest {
      * TASK: new American presidents are often measured by their performance during the first 100 days in office.
      * Inauguration Day 2017 is Jan 20.  When is this president's 100-day deadline?
      *
-     * RESULT:
+     * RESULT: April 30th 2017
      */
     public static void testPresidentsFirst100Days() {
-        // TODO
+        LocalDate OneHundredDaysAfter = LocalDate.of(2017, 04, 30);
+        DateTimeFormatter usDateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
+        System.out.println("The first 100 days of the President ends on " + usDateFormat.format(OneHundredDaysAfter));
 
     }
 
