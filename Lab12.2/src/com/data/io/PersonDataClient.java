@@ -8,6 +8,12 @@
 
 package com.data.io;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class PersonDataClient {
 
     /**
@@ -15,7 +21,7 @@ public class PersonDataClient {
      */
     public static void main(String[] args) {
         // writeData();
-        // readData();
+         readData();
     }
 
     /**
@@ -30,6 +36,14 @@ public class PersonDataClient {
      */
     private static void writeData() {
         // TODO
+        try (DataOutputStream out = new DataOutputStream(new FileOutputStream("person.dat")))   {
+            out.writeUTF("Patrick Lauer");
+            out.writeInt(34);
+            out.writeDouble(9.5);
+            out.writeBoolean(false);
+        }   catch (IOException e)   {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -43,5 +57,15 @@ public class PersonDataClient {
      */
     private static void readData() {
         // TODO
+        try (DataInputStream in = new DataInputStream(new FileInputStream("person.dat")))   {
+            String name = in.readUTF();
+            int age = in.readInt();
+            double shoeSize = in.readDouble();
+            boolean martialStatus = in.readBoolean();
+            System.out.println("My name is " + name + ". I am " + age + " years old. "
+                + "My shoe size is " + shoeSize + " and it is " + martialStatus + " that I am married!");
+        }   catch (IOException e)   {
+            e.printStackTrace();
+        }
     }
 }
